@@ -1,0 +1,56 @@
+<br>
+<br>
+<br>
+<br>
+
+<main>
+
+
+<aside>
+
+</aside>
+
+<section>
+<% if user_signed_in? %>
+<div class="createQuestion">
+
+<%= form_for @question ,remote: true do |f| %>
+
+<%= f.label :Have_something_in_mind? %> <br>
+
+<%= f.text_area :content , placeholder: 'ask a question'  %>  <br>
+
+<%= f.submit  id: 'create_tweet_submit' , value: 'Ask' %>
+
+<% end %>
+<br>
+
+ <% if @question.errors.any? %>
+      
+      <% @question.errors.full_messages.each do |message| %>
+      
+
+      <script type="text/javascript">
+	noty({text: '<%= message %>', type: 'error'});
+</script>
+ 
+  <% end %>
+     
+  <% end %>
+
+ </div>
+ 
+ <% end %>
+
+
+
+ <div id="questions">
+
+<%  @questions.each do |question| %>
+
+<%= render 'question', question: question %>
+
+<% end %>
+
+</div> 
+

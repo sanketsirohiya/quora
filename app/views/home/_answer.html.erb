@@ -1,0 +1,31 @@
+<div class="answer">
+	<div class="answerpart">
+			<div class="left">
+				<div class="userImage">
+				<% if ans.user.profile_picture %>
+				<img src="/uploads/<%=ans.user.profile_picture %>">
+				<% end %>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="userDetail">
+					<%= ans.user.email %>
+				</div>
+				<div class="content">
+					<strong><%= ans.content %></strong>
+				</div>
+				<br>
+				<% if user_signed_in? %>
+
+				<div class="actions"> 
+				<%= link_to ans.upvote_string(current_user.id), url_for(controller: 'upvote', action: 'toggle_upvote', qa_id: ans.id , utype: 'answer') , method: :post , id: "upvote_answer_#{ans.id}" , remote: true %> 
+				</div>
+				<div class="count" id= "count_answer_<%= ans.id %>">
+				<%= ans.upvote_count %>
+				</div>
+				<% end %>
+			</div>	
+	</div>
+</div>
+<br>

@@ -1,0 +1,70 @@
+<div class="question">
+	<div class="questionPart">
+		<div class="left">	
+			<div class="userImage">
+				<% if question.user.profile_picture %>
+				<img src="/uploads/<%=question.user.profile_picture %>">
+				<% end %>
+			</div>
+		</div>
+
+		<div class="right">
+			<div class="userDetail"> 
+				<%= question.user.email %>
+			</div>
+			<div class="content">
+			<strong><%= question.content %></strong>
+			</div>
+			<br>
+			<% if user_signed_in? %>
+				<div class="actions"> 
+				<%= link_to question.upvote_string(current_user.id), url_for(controller: 'upvote', action: 'toggle_upvote', qa_id: question.id , utype: 'question',) , method: :post, id: "upvote_question_#{question.id}" ,remote: true %> 
+				</div>
+				<div class="count" id= "count_question_<%= question.id %>">
+			 	<%= question.upvote_count %>
+				</div>
+			<% end %>	
+		</div>
+		<% if question.user == current_user %>
+		<div class ="dropIcon" id="dropIcon_question_<%= question.id %>">
+			<div class= "onlyIcon">
+				<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+			</div>
+			<div class="menu">
+
+			</div>
+		</div>
+		<%end%>
+
+	</div>	
+	<div class="answerPart">
+	<% if user_signed_in? %>
+	<% @answer= Answer.new %>
+		<%= form_for @answer ,remote: true do |f| %>
+
+		<%= f.label :Your_Answer %> <br>	
+		<%= f.hidden_field :question_id , :value => question.id %>
+		<%= f.hidden_field :user_id , :value => current_user.id %>
+		<%= f.text_area :content , :id => "answer_content_#{question.id}" %>  <br>
+
+		<%= f.submit  %>
+		<% end %>
+	<% end %>
+		<br>
+		<% if question.answers.length == 0 %>
+			<div class="answers blankans" id="answers_<%= question.id %>">
+				<% question.answers.order(created_at: :desc).each do |ans| %>
+				<%= render 'answer', ans: ans %>
+			<% end %>
+			</div>
+		<%else%>
+			<div class="answers" id="answers_<%= question.id %>">
+				<% question.answers.order(created_at: :desc).each do |ans| %>
+				<%= render 'answer', ans: ans %>
+			<% end %>
+			</div>
+		<%end%>
+	</div>
+</div>
+<br>
+

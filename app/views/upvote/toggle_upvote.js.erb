@@ -1,0 +1,27 @@
+<% if @utype == "question" %>
+	<% if @is_upvote %>
+	$('#upvote_question_<%= @qa_id%>').html("Cancel Upvote");
+	noty({text: 'Question was Upvoted', type: 'alert', timeout: 1000});
+	$('#count_question_<%= @qa_id%>').html("<%= @question.upvote_count %>");
+
+	<% else %>
+
+	$('#upvote_question_<%= @qa_id%>').html("Upvote");
+	noty({text: 'Upvote cancelled', type: 'alert' , timeout: 1000});
+	$('#count_question_<%= @qa_id%>').html("<%= @question.upvote_count %>");
+
+	<% end %>
+<% else %>
+	<% if @is_upvote %>
+	$('#upvote_answer_<%= @qa_id%>').html("Cancel Upvote");
+	noty({text: 'Answer was Upvoted', type: 'alert' , timeout: 1000});
+	$('#count_answer_<%= @qa_id%>').html("<%= @answer.upvote_count %>");
+
+	<% else %>
+
+	$('#upvote_answer_<%= @qa_id%>').html("Upvote");
+	noty({text: 'Upvote cancelled', type: 'alert' , timeout: 1000});
+	$('#count_answer_<%= @qa_id%>').html("<%= @answer.upvote_count %>");
+
+	<% end %>
+<% end %>	

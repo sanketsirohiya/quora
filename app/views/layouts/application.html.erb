@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quora</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> 
+</script>
+<% if notice %> 
+<script type="text/javascript"> 
+	noty({text: '<%= notice %>', type: 'alert' , timeout: 1000});
+</script>
+
+<% end %>
+
+
+<% if alert %>
+
+<script type="text/javascript">
+	noty({text: '<%= alert %>', type: 'error', timeout: 1000 });
+</script>
+<% end %>
+
+<header>
+
+<div class="logo">
+<%= link_to image_tag("quora.png"), home_index_path %>
+</div>
+
+<% if user_signed_in? %>
+<nav class ="signedIn">
+
+<ul >
+<li> <i class="fa fa-book" aria-hidden="true"></i><%= link_to "Read",home_index_path , method: :get%></li>
+<li>  <%= link_to "Profile", controller: "home" , action: "profile" %></li>
+<li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+
+</ul>
+</nav> 
+
+<% else %>
+<nav class="signedOut">
+<ul >
+
+<li> <i class="fa fa-book" aria-hidden="true"></i><%= link_to "Read",home_index_path , method: :get%></li>
+<li>  <%= link_to "Sign In",new_user_session_path , method: :get%></li>
+<li>  <%= link_to "Sign Up",new_user_registration_path , method: :get%></li>
+
+</ul>
+</nav>
+<%end%>
+
+
+</header>
+
+<%= yield %>
+
+</body>
+</html>
+<script src="https://use.fontawesome.com/25dead7180.js"></script>
+

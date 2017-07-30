@@ -1,0 +1,8 @@
+<% if @answer.errors.any? %>
+noty({text: "<%= @answer.errors.full_messages.first %>" , type: 'error' , timeout: 1000});
+<% else %>
+$('#answers_<%=@answer.question.id%>').removeClass('blankans');
+noty({text: 'Answer was Created succesfully', type: 'success' , timeout: 1000});
+$('#answers_<%=@answer.question.id%>').prepend("<%= escape_javascript (render 'home/answer', ans: @answer) %>");
+$('#answer_content_<%=@answer.question.id%>').val("");
+<% end %>

@@ -1,0 +1,274 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+	position: fixed;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-top: 2px solid #b92b27 ;
+    border-bottom: 1px solid #ddd;
+    div.logo {
+        a{
+        img {
+        	height: 50px;	
+        	margin-right: 862px;
+        	margin-left:367px;
+        }
+        }
+    }
+
+    nav.signedOut {
+    	ul{
+    		display: flex;
+    		padding-top: 5px;
+    		margin-right:350px;
+    		li{
+    			font-size: 14px;
+    			list-style: none;
+    			margin-right: 15px;
+    		}
+    	}
+    }
+    nav.signedIn{
+        ul{
+            display: flex;
+            padding-top: 5px;
+            margin-right:349px;
+            li{
+                font-size: 14px;
+                list-style: none;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+main {
+	display: flex;
+	aside{
+		width:20%;
+		}	
+
+	section{	
+        width: 60%;
+		div.createQuestion{
+			textarea{
+				width: 100%;
+				padding-left: 4px;
+				padding-top: 4px;
+                font-size: 16px;
+			}
+            label{
+                font-size: 20px;
+                color: #444d58;
+            }
+            input{
+                font-size: medium;
+                background-color: #f1f8fb;
+                border: 1px solid #bbcadc;
+                border-radius: 4px;
+                color: #2b6dad;
+                padding: 5px 35px;
+            }
+            input:hover{
+            background-color:#2b6dad;
+            color:#f1f8fb;
+            }
+		}
+
+        div#questions
+        {
+            div.question
+            {
+            	display: flex;
+            	flex-direction: column;
+                border: 2px solid #efefef;
+                width: 100%;
+                background-color: white;
+                box-shadow: 1px 1px 0 #f7f7f7;
+                padding: 12px;
+            	div.questionPart
+            	{
+                	
+                	display: flex;
+                	padding: 6px;
+                	div.left
+                	{
+                    	width: 50px;
+                    	div.userImage
+                    	{
+                        	width: 40px;
+                        	height: 40px;
+                        	border-radius: 20px;
+                        	background-color: black;
+
+                        	img
+                        	{	
+                        	height: 40px;
+                        	width: 40px;
+                        	border-radius: 20px;
+                       		}
+                    	}
+                    }	
+                	div.right
+                	{                
+                    	flex-grow:1;
+                    	padding-left: 5px;
+                    	div.content
+                    	{
+                    		word-break: break-all;
+                            font-size: 18px;
+
+                   		}
+                   		div.actions{
+                   			display: inline-block;
+                            a{
+                                font-size: 16px;
+                                background-color: #f1f8fb;
+                                border: 1px solid #bbcadc;
+                                border-radius: 4px;
+                                color: #2b6dad;
+                                padding: 5px 35px;
+                                cursor: pointer;
+                                text-decoration:none;
+                            }
+                            a:hover{
+                            background-color:#2b6dad;
+                            color:#f1f8fb;
+                            }
+                   		}
+                   		div.count
+                   		{
+                   			display: inline-block;
+                            font-size: 16px;
+                            background-color: #f1f8fb;
+                            border: 1px solid #bbcadc;
+                            border-radius: 4px;
+                            color: #2b6dad;
+                            padding: 5px;
+                   		}
+                	}
+                    div.dropIcon{
+                        font-size: 31px;
+                        color: #8a8e90;
+
+                    }
+            	}
+            	div.answerPart
+            	{
+            		padding-left: 10px;
+            		padding-bottom: 5px;
+                    form{
+                        background-color: #f3f3f3;
+                        padding:10px;
+                        label{
+                            font-size:14px;
+                        }
+                        textarea{
+                            font-size: 16px;
+                            width: 100%;
+                        }
+                        input{
+                            font-size: medium;
+                            background-color: #f1f8fb;
+                            border: 1px solid #bbcadc;
+                            border-radius: 4px;
+                            color: #2b6dad;
+                            padding: 5px 35px;   
+                        }
+                        input:hover{
+                        background-color:#2b6dad;
+                        color:#f1f8fb;
+                        }
+                    
+                    }        
+                    div.answers
+                    {
+                        height: 300px;
+                        overflow: scroll;
+                        background-color: #dfe5e8;
+                        padding:50px;
+                       div.answer
+                       {
+                            border: 2px solid #efefef;
+                            background-color: white;
+                            box-shadow: 1px 1px 0 #f7f7f7;
+                            padding: 12px;
+                            display: flex;
+                            flex-direction: column;
+                            div.answerpart
+                            {   
+                    
+                                display: flex;
+                                padding: 6px;
+                                div.left
+                                {
+                                    width: 50px;
+                                    div.userImage
+                                    {
+                                        width: 40px;
+                                        height: 40px;
+                                        border-radius: 20px;
+                                        background-color: black;
+
+                                        img
+                                        {   
+                                            height: 40px;
+                                            width: 40px;
+                                            border-radius: 20px;
+                                        }
+                                    }
+                                }   
+                                div.right
+                                {                
+                                    flex-grow:1;
+                                    padding-left: 5px;
+                                    div.content
+                                    {
+                                        word-break: break-all;
+                                        font-size: 18px;
+                                    
+                                    }
+                                    div.actions{
+                                        display: inline-block;
+                                        a{
+                                            font-size: 16px;
+                                            background-color: #f1f8fb;
+                                            border: 1px solid #bbcadc;
+                                            border-radius: 4px;
+                                            color: #2b6dad;
+                                            padding: 5px 35px;
+                                            cursor: pointer;
+                                            text-decoration:none;
+                                        }
+                                        a:hover{
+                                            background-color:#2b6dad;
+                                            color:#f1f8fb;
+                                        }
+                                    }    
+                                    div.count
+                                    {
+                                        display: inline-block;
+                                        font-size: 16px;
+                                        background-color: #f1f8fb;
+                                        border: 1px solid #bbcadc;
+                                        border-radius: 4px;
+                                        color: #2b6dad;
+                                        padding: 5px;
+                                    }  
+                                }     
+                            }
+                       }
+                    }
+                    div.answers.blankans{
+                        display: none;
+                    }
+            	}
+            }
+        }
+	}
+}
